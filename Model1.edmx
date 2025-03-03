@@ -1,0 +1,1480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище FootprintBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccessLevels">
+          <Key>
+            <PropertyRef Name="AccessLevel" />
+          </Key>
+          <Property Name="AccessLevel" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BoxOfShoes">
+          <Key>
+            <PropertyRef Name="BoxId" />
+          </Key>
+          <Property Name="BoxId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContainerId" Type="int" Nullable="false" />
+          <Property Name="StockId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Buyer">
+          <Key>
+            <PropertyRef Name="BuyerId" />
+          </Key>
+          <Property Name="BuyerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Discount" Type="float" />
+        </EntityType>
+        <EntityType Name="Cheque">
+          <Key>
+            <PropertyRef Name="ChequeId" />
+          </Key>
+          <Property Name="ChequeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateOfSale" Type="date" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+          <Property Name="BuyerId" Type="int" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ColorId" />
+          </Key>
+          <Property Name="ColorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Container">
+          <Key>
+            <PropertyRef Name="ContainerId" />
+          </Key>
+          <Property Name="ContainerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShoesId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+          <Property Name="EntryDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExitDate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SuppliersId" Type="int" Nullable="false" />
+          <Property Name="DateOfReceipt" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemsInTheReceipt">
+          <Key>
+            <PropertyRef Name="ItemsInTheReceiptId" />
+          </Key>
+          <Property Name="ItemsInTheReceiptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChequeId" Type="int" Nullable="false" />
+          <Property Name="ShoesId" Type="int" Nullable="false" />
+          <Property Name="ShoeSize" Type="int" Nullable="false" />
+          <Property Name="QuantityProduct" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReceivedGoods">
+          <Key>
+            <PropertyRef Name="ReceivedGoodsId" />
+          </Key>
+          <Property Name="ReceivedGoodsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" Nullable="false" />
+          <Property Name="ShoesId" Type="int" Nullable="false" />
+          <Property Name="ShoeSize" Type="int" Nullable="false" />
+          <Property Name="QuantityProduct" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Season">
+          <Key>
+            <PropertyRef Name="SeasonId" />
+          </Key>
+          <Property Name="SeasonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shoes">
+          <Key>
+            <PropertyRef Name="ShoesId" />
+          </Key>
+          <Property Name="ShoesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="SeasonId" Type="int" Nullable="false" />
+          <Property Name="ShoesTypeId" Type="int" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="150" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="ShoeSize">
+          <Key>
+            <PropertyRef Name="ShoeSize" />
+          </Key>
+          <Property Name="ShoeSize" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShoesType">
+          <Key>
+            <PropertyRef Name="ShoesTypeId" />
+          </Key>
+          <Property Name="ShoesTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AccessLevel" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="StockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShoesId" Type="int" Nullable="false" />
+          <Property Name="ShoesSize" Type="int" Nullable="false" />
+          <Property Name="QuantityProduct" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="SuppliersId" />
+          </Key>
+          <Property Name="SuppliersId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_BoxOfShoes_Container">
+          <End Role="Container" Type="Self.Container" Multiplicity="1" />
+          <End Role="BoxOfShoes" Type="Self.BoxOfShoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Container">
+              <PropertyRef Name="ContainerId" />
+            </Principal>
+            <Dependent Role="BoxOfShoes">
+              <PropertyRef Name="ContainerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoxOfShoes_Stock">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BoxOfShoes" Type="Self.BoxOfShoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="StockId" />
+            </Principal>
+            <Dependent Role="BoxOfShoes">
+              <PropertyRef Name="StockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cheque_Buyer">
+          <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cheque" Type="Self.Cheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Cheque">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cheque_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cheque" Type="Self.Cheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="Cheque">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Container_Shoes">
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Container" Type="Self.Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoes">
+              <PropertyRef Name="ShoesId" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="ShoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SuppliersId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="SuppliersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInTheReceipt_Cheque">
+          <End Role="Cheque" Type="Self.Cheque" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemsInTheReceipt" Type="Self.ItemsInTheReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cheque">
+              <PropertyRef Name="ChequeId" />
+            </Principal>
+            <Dependent Role="ItemsInTheReceipt">
+              <PropertyRef Name="ChequeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInTheReceipt_Shoes">
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemsInTheReceipt" Type="Self.ItemsInTheReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoes">
+              <PropertyRef Name="ShoesId" />
+            </Principal>
+            <Dependent Role="ItemsInTheReceipt">
+              <PropertyRef Name="ShoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInTheReceipt_ShoeSize">
+          <End Role="ShoeSize" Type="Self.ShoeSize" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemsInTheReceipt" Type="Self.ItemsInTheReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoeSize">
+              <PropertyRef Name="ShoeSize" />
+            </Principal>
+            <Dependent Role="ItemsInTheReceipt">
+              <PropertyRef Name="ShoeSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceivedGoods_Invoice">
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReceivedGoods" Type="Self.ReceivedGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="InvoiceId" />
+            </Principal>
+            <Dependent Role="ReceivedGoods">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceivedGoods_Shoes">
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReceivedGoods" Type="Self.ReceivedGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoes">
+              <PropertyRef Name="ShoesId" />
+            </Principal>
+            <Dependent Role="ReceivedGoods">
+              <PropertyRef Name="ShoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceivedGoods_ShoeSize">
+          <End Role="ShoeSize" Type="Self.ShoeSize" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReceivedGoods" Type="Self.ReceivedGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoeSize">
+              <PropertyRef Name="ShoeSize" />
+            </Principal>
+            <Dependent Role="ReceivedGoods">
+              <PropertyRef Name="ShoeSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_Color">
+          <End Role="Color" Type="Self.Color" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ColorId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_Season">
+          <End Role="Season" Type="Self.Season" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="SeasonId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_ShoesType">
+          <End Role="ShoesType" Type="Self.ShoesType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoesType">
+              <PropertyRef Name="ShoesTypeId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="ShoesTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_AccessLevels">
+          <End Role="AccessLevels" Type="Self.AccessLevels" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccessLevels">
+              <PropertyRef Name="AccessLevel" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="AccessLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Shoes">
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoes">
+              <PropertyRef Name="ShoesId" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ShoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_ShoeSize">
+          <End Role="ShoeSize" Type="Self.ShoeSize" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoeSize">
+              <PropertyRef Name="ShoeSize" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ShoesSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище FootprintBaseModelContainer">
+          <EntitySet Name="AccessLevels" EntityType="Self.AccessLevels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoxOfShoes" EntityType="Self.BoxOfShoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buyer" EntityType="Self.Buyer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cheque" EntityType="Self.Cheque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Container" EntityType="Self.Container" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsInTheReceipt" EntityType="Self.ItemsInTheReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReceivedGoods" EntityType="Self.ReceivedGoods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Season" EntityType="Self.Season" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shoes" EntityType="Self.Shoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoeSize" EntityType="Self.ShoeSize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoesType" EntityType="Self.ShoesType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BoxOfShoes_Container" Association="Self.FK_BoxOfShoes_Container">
+            <End Role="Container" EntitySet="Container" />
+            <End Role="BoxOfShoes" EntitySet="BoxOfShoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoxOfShoes_Stock" Association="Self.FK_BoxOfShoes_Stock">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="BoxOfShoes" EntitySet="BoxOfShoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cheque_Buyer" Association="Self.FK_Cheque_Buyer">
+            <End Role="Buyer" EntitySet="Buyer" />
+            <End Role="Cheque" EntitySet="Cheque" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cheque_Staff" Association="Self.FK_Cheque_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Cheque" EntitySet="Cheque" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Container_Shoes" Association="Self.FK_Container_Shoes">
+            <End Role="Shoes" EntitySet="Shoes" />
+            <End Role="Container" EntitySet="Container" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Staff" Association="Self.FK_History_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Suppliers" Association="Self.FK_Invoice_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInTheReceipt_Cheque" Association="Self.FK_ItemsInTheReceipt_Cheque">
+            <End Role="Cheque" EntitySet="Cheque" />
+            <End Role="ItemsInTheReceipt" EntitySet="ItemsInTheReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInTheReceipt_Shoes" Association="Self.FK_ItemsInTheReceipt_Shoes">
+            <End Role="Shoes" EntitySet="Shoes" />
+            <End Role="ItemsInTheReceipt" EntitySet="ItemsInTheReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInTheReceipt_ShoeSize" Association="Self.FK_ItemsInTheReceipt_ShoeSize">
+            <End Role="ShoeSize" EntitySet="ShoeSize" />
+            <End Role="ItemsInTheReceipt" EntitySet="ItemsInTheReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceivedGoods_Invoice" Association="Self.FK_ReceivedGoods_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="ReceivedGoods" EntitySet="ReceivedGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceivedGoods_Shoes" Association="Self.FK_ReceivedGoods_Shoes">
+            <End Role="Shoes" EntitySet="Shoes" />
+            <End Role="ReceivedGoods" EntitySet="ReceivedGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceivedGoods_ShoeSize" Association="Self.FK_ReceivedGoods_ShoeSize">
+            <End Role="ShoeSize" EntitySet="ShoeSize" />
+            <End Role="ReceivedGoods" EntitySet="ReceivedGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_Brand" Association="Self.FK_Shoes_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_Color" Association="Self.FK_Shoes_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_Material" Association="Self.FK_Shoes_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_Season" Association="Self.FK_Shoes_Season">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_ShoesType" Association="Self.FK_Shoes_ShoesType">
+            <End Role="ShoesType" EntitySet="ShoesType" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_AccessLevels" Association="Self.FK_Staff_AccessLevels">
+            <End Role="AccessLevels" EntitySet="AccessLevels" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Post" Association="Self.FK_Staff_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Shoes" Association="Self.FK_Stock_Shoes">
+            <End Role="Shoes" EntitySet="Shoes" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_ShoeSize" Association="Self.FK_Stock_ShoeSize">
+            <End Role="ShoeSize" EntitySet="ShoeSize" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FootprintBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccessLevels">
+          <Key>
+            <PropertyRef Name="AccessLevel" />
+          </Key>
+          <Property Name="AccessLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_AccessLevels" FromRole="AccessLevels" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Shoes" Relationship="Self.FK_Shoes_Brand" FromRole="Brand" ToRole="Shoes" />
+        </EntityType>
+        <EntityType Name="Buyer">
+          <Key>
+            <PropertyRef Name="BuyerId" />
+          </Key>
+          <Property Name="BuyerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Discount" Type="Double" />
+          <NavigationProperty Name="Cheque" Relationship="Self.FK_Cheque_Buyer" FromRole="Buyer" ToRole="Cheque" />
+        </EntityType>
+        <EntityType Name="Cheque">
+          <Key>
+            <PropertyRef Name="ChequeId" />
+          </Key>
+          <Property Name="ChequeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateOfSale" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <Property Name="BuyerId" Type="Int32" />
+          <NavigationProperty Name="Buyer" Relationship="Self.FK_Cheque_Buyer" FromRole="Cheque" ToRole="Buyer" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Cheque_Staff" FromRole="Cheque" ToRole="Staff" />
+          <NavigationProperty Name="ItemsInTheReceipt" Relationship="Self.FK_ItemsInTheReceipt_Cheque" FromRole="Cheque" ToRole="ItemsInTheReceipt" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ColorId" />
+          </Key>
+          <Property Name="ColorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Shoes" Relationship="Self.FK_Shoes_Color" FromRole="Color" ToRole="Shoes" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SuppliersId" Type="Int32" Nullable="false" />
+          <Property Name="DateOfReceipt" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Suppliers" Relationship="Self.FK_Invoice_Suppliers" FromRole="Invoice" ToRole="Suppliers" />
+          <NavigationProperty Name="ReceivedGoods" Relationship="FootprintBaseModel.FK_ReceivedGoods_Invoice" FromRole="Invoice" ToRole="ReceivedGoods" />
+        </EntityType>
+        <EntityType Name="ItemsInTheReceipt">
+          <Key>
+            <PropertyRef Name="ItemsInTheReceiptId" />
+          </Key>
+          <Property Name="ItemsInTheReceiptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChequeId" Type="Int32" Nullable="false" />
+          <Property Name="ShoesId" Type="Int32" Nullable="false" />
+          <Property Name="ShoeSize" Type="Int32" Nullable="false" />
+          <Property Name="QuantityProduct" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cheque" Relationship="Self.FK_ItemsInTheReceipt_Cheque" FromRole="ItemsInTheReceipt" ToRole="Cheque" />
+          <NavigationProperty Name="Shoes" Relationship="Self.FK_ItemsInTheReceipt_Shoes" FromRole="ItemsInTheReceipt" ToRole="Shoes" />
+          <NavigationProperty Name="ShoeSize1" Relationship="Self.FK_ItemsInTheReceipt_ShoeSize" FromRole="ItemsInTheReceipt" ToRole="ShoeSize" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Shoes" Relationship="Self.FK_Shoes_Material" FromRole="Material" ToRole="Shoes" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Post" FromRole="Post" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Season">
+          <Key>
+            <PropertyRef Name="SeasonId" />
+          </Key>
+          <Property Name="SeasonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Shoes" Relationship="Self.FK_Shoes_Season" FromRole="Season" ToRole="Shoes" />
+        </EntityType>
+        <EntityType Name="Shoes">
+          <Key>
+            <PropertyRef Name="ShoesId" />
+          </Key>
+          <Property Name="ShoesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeasonId" Type="Int32" Nullable="false" />
+          <Property Name="ShoesTypeId" Type="Int32" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="MaterialId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK_Shoes_Brand" FromRole="Shoes" ToRole="Brand" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_Shoes_Color" FromRole="Shoes" ToRole="Color" />
+          <NavigationProperty Name="ItemsInTheReceipt" Relationship="Self.FK_ItemsInTheReceipt_Shoes" FromRole="Shoes" ToRole="ItemsInTheReceipt" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Shoes_Material" FromRole="Shoes" ToRole="Material" />
+          <NavigationProperty Name="Season" Relationship="Self.FK_Shoes_Season" FromRole="Shoes" ToRole="Season" />
+          <NavigationProperty Name="ShoesType" Relationship="Self.FK_Shoes_ShoesType" FromRole="Shoes" ToRole="ShoesType" />
+          <NavigationProperty Name="Container" Relationship="FootprintBaseModel.FK_Container_Shoes" FromRole="Shoes" ToRole="Container" />
+          <NavigationProperty Name="ReceivedGoods" Relationship="FootprintBaseModel.FK_ReceivedGoods_Shoes" FromRole="Shoes" ToRole="ReceivedGoods" />
+          <NavigationProperty Name="Stock" Relationship="FootprintBaseModel.FK_Stock_Shoes" FromRole="Shoes" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="ShoeSize">
+          <Key>
+            <PropertyRef Name="ShoeSize1" />
+          </Key>
+          <Property Name="ShoeSize1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ItemsInTheReceipt" Relationship="Self.FK_ItemsInTheReceipt_ShoeSize" FromRole="ShoeSize" ToRole="ItemsInTheReceipt" />
+          <NavigationProperty Name="ReceivedGoods" Relationship="FootprintBaseModel.FK_ReceivedGoods_ShoeSize" FromRole="ShoeSize" ToRole="ReceivedGoods" />
+          <NavigationProperty Name="Stock" Relationship="FootprintBaseModel.FK_Stock_ShoeSize" FromRole="ShoeSize" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="ShoesType">
+          <Key>
+            <PropertyRef Name="ShoesTypeId" />
+          </Key>
+          <Property Name="ShoesTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Shoes" Relationship="Self.FK_Shoes_ShoesType" FromRole="ShoesType" ToRole="Shoes" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccessLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AccessLevels" Relationship="Self.FK_Staff_AccessLevels" FromRole="Staff" ToRole="AccessLevels" />
+          <NavigationProperty Name="Cheque" Relationship="Self.FK_Cheque_Staff" FromRole="Staff" ToRole="Cheque" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Staff_Post" FromRole="Staff" ToRole="Post" />
+          <NavigationProperty Name="History" Relationship="FootprintBaseModel.FK_History_Staff" FromRole="Staff" ToRole="History" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="SuppliersId" />
+          </Key>
+          <Property Name="SuppliersId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Invoice" Relationship="Self.FK_Invoice_Suppliers" FromRole="Suppliers" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Staff_AccessLevels">
+          <End Role="AccessLevels" Type="Self.AccessLevels" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccessLevels">
+              <PropertyRef Name="AccessLevel" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="AccessLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cheque_Buyer">
+          <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cheque" Type="Self.Cheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Cheque">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cheque_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cheque" Type="Self.Cheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="Cheque">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInTheReceipt_Cheque">
+          <End Role="Cheque" Type="Self.Cheque" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemsInTheReceipt" Type="Self.ItemsInTheReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cheque">
+              <PropertyRef Name="ChequeId" />
+            </Principal>
+            <Dependent Role="ItemsInTheReceipt">
+              <PropertyRef Name="ChequeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_Color">
+          <End Role="Color" Type="Self.Color" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ColorId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SuppliersId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="SuppliersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInTheReceipt_Shoes">
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemsInTheReceipt" Type="Self.ItemsInTheReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoes">
+              <PropertyRef Name="ShoesId" />
+            </Principal>
+            <Dependent Role="ItemsInTheReceipt">
+              <PropertyRef Name="ShoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInTheReceipt_ShoeSize">
+          <End Role="ShoeSize" Type="Self.ShoeSize" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemsInTheReceipt" Type="Self.ItemsInTheReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoeSize">
+              <PropertyRef Name="ShoeSize1" />
+            </Principal>
+            <Dependent Role="ItemsInTheReceipt">
+              <PropertyRef Name="ShoeSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_Season">
+          <End Role="Season" Type="Self.Season" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="SeasonId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shoes_ShoesType">
+          <End Role="ShoesType" Type="Self.ShoesType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoesType">
+              <PropertyRef Name="ShoesTypeId" />
+            </Principal>
+            <Dependent Role="Shoes">
+              <PropertyRef Name="ShoesTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FootprintBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccessLevels" EntityType="Self.AccessLevels" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" />
+          <EntitySet Name="Buyer" EntityType="Self.Buyer" />
+          <EntitySet Name="Cheque" EntityType="Self.Cheque" />
+          <EntitySet Name="Color" EntityType="Self.Color" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" />
+          <EntitySet Name="ItemsInTheReceipt" EntityType="Self.ItemsInTheReceipt" />
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
+          <EntitySet Name="Season" EntityType="Self.Season" />
+          <EntitySet Name="Shoes" EntityType="Self.Shoes" />
+          <EntitySet Name="ShoeSize" EntityType="Self.ShoeSize" />
+          <EntitySet Name="ShoesType" EntityType="Self.ShoesType" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Staff_AccessLevels" Association="Self.FK_Staff_AccessLevels">
+            <End Role="AccessLevels" EntitySet="AccessLevels" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_Brand" Association="Self.FK_Shoes_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cheque_Buyer" Association="Self.FK_Cheque_Buyer">
+            <End Role="Buyer" EntitySet="Buyer" />
+            <End Role="Cheque" EntitySet="Cheque" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cheque_Staff" Association="Self.FK_Cheque_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Cheque" EntitySet="Cheque" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInTheReceipt_Cheque" Association="Self.FK_ItemsInTheReceipt_Cheque">
+            <End Role="Cheque" EntitySet="Cheque" />
+            <End Role="ItemsInTheReceipt" EntitySet="ItemsInTheReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_Color" Association="Self.FK_Shoes_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Suppliers" Association="Self.FK_Invoice_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInTheReceipt_Shoes" Association="Self.FK_ItemsInTheReceipt_Shoes">
+            <End Role="Shoes" EntitySet="Shoes" />
+            <End Role="ItemsInTheReceipt" EntitySet="ItemsInTheReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInTheReceipt_ShoeSize" Association="Self.FK_ItemsInTheReceipt_ShoeSize">
+            <End Role="ShoeSize" EntitySet="ShoeSize" />
+            <End Role="ItemsInTheReceipt" EntitySet="ItemsInTheReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_Material" Association="Self.FK_Shoes_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Post" Association="Self.FK_Staff_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_Season" Association="Self.FK_Shoes_Season">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shoes_ShoesType" Association="Self.FK_Shoes_ShoesType">
+            <End Role="ShoesType" EntitySet="ShoesType" />
+            <End Role="Shoes" EntitySet="Shoes" />
+          </AssociationSet>
+          <EntitySet Name="Container" EntityType="FootprintBaseModel.Container" />
+          <AssociationSet Name="FK_Container_Shoes" Association="FootprintBaseModel.FK_Container_Shoes">
+            <End Role="Shoes" EntitySet="Shoes" />
+            <End Role="Container" EntitySet="Container" />
+          </AssociationSet>
+          <EntitySet Name="History" EntityType="FootprintBaseModel.History" />
+          <AssociationSet Name="FK_History_Staff" Association="FootprintBaseModel.FK_History_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <EntitySet Name="BoxOfShoes" EntityType="FootprintBaseModel.BoxOfShoes" />
+          <EntitySet Name="ReceivedGoods" EntityType="FootprintBaseModel.ReceivedGoods" />
+          <AssociationSet Name="FK_BoxOfShoes_Container" Association="FootprintBaseModel.FK_BoxOfShoes_Container">
+            <End Role="Container" EntitySet="Container" />
+            <End Role="BoxOfShoes" EntitySet="BoxOfShoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceivedGoods_Invoice" Association="FootprintBaseModel.FK_ReceivedGoods_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="ReceivedGoods" EntitySet="ReceivedGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceivedGoods_Shoes" Association="FootprintBaseModel.FK_ReceivedGoods_Shoes">
+            <End Role="Shoes" EntitySet="Shoes" />
+            <End Role="ReceivedGoods" EntitySet="ReceivedGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceivedGoods_ShoeSize" Association="FootprintBaseModel.FK_ReceivedGoods_ShoeSize">
+            <End Role="ShoeSize" EntitySet="ShoeSize" />
+            <End Role="ReceivedGoods" EntitySet="ReceivedGoods" />
+          </AssociationSet>
+          <EntitySet Name="Stock" EntityType="FootprintBaseModel.Stock" />
+          <AssociationSet Name="FK_BoxOfShoes_Stock" Association="FootprintBaseModel.FK_BoxOfShoes_Stock">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="BoxOfShoes" EntitySet="BoxOfShoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Shoes" Association="FootprintBaseModel.FK_Stock_Shoes">
+            <End Role="Shoes" EntitySet="Shoes" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_ShoeSize" Association="FootprintBaseModel.FK_Stock_ShoeSize">
+            <End Role="ShoeSize" EntitySet="ShoeSize" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Container">
+          <Key>
+            <PropertyRef Name="ContainerId" />
+          </Key>
+          <Property Name="ContainerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShoesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Shoes" Relationship="FootprintBaseModel.FK_Container_Shoes" FromRole="Container" ToRole="Shoes" />
+          <NavigationProperty Name="BoxOfShoes" Relationship="FootprintBaseModel.FK_BoxOfShoes_Container" FromRole="Container" ToRole="BoxOfShoes" />
+        </EntityType>
+        <Association Name="FK_Container_Shoes">
+          <End Type="FootprintBaseModel.Shoes" Role="Shoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FootprintBaseModel.Container" Role="Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoes">
+              <PropertyRef Name="ShoesId" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="ShoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <Property Name="EntryDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExitDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Staff" Relationship="FootprintBaseModel.FK_History_Staff" FromRole="History" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK_History_Staff">
+          <End Type="FootprintBaseModel.Staff" Role="Staff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FootprintBaseModel.History" Role="History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BoxOfShoes">
+          <Key>
+            <PropertyRef Name="BoxId" />
+          </Key>
+          <Property Name="BoxId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContainerId" Type="Int32" Nullable="false" />
+          <Property Name="StockId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Container" Relationship="FootprintBaseModel.FK_BoxOfShoes_Container" FromRole="BoxOfShoes" ToRole="Container" />
+          <NavigationProperty Name="Stock" Relationship="FootprintBaseModel.FK_BoxOfShoes_Stock" FromRole="BoxOfShoes" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="ReceivedGoods">
+          <Key>
+            <PropertyRef Name="ReceivedGoodsId" />
+          </Key>
+          <Property Name="ReceivedGoodsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="ShoesId" Type="Int32" Nullable="false" />
+          <Property Name="ShoeSize" Type="Int32" Nullable="false" />
+          <Property Name="QuantityProduct" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Invoice" Relationship="FootprintBaseModel.FK_ReceivedGoods_Invoice" FromRole="ReceivedGoods" ToRole="Invoice" />
+          <NavigationProperty Name="Shoes" Relationship="FootprintBaseModel.FK_ReceivedGoods_Shoes" FromRole="ReceivedGoods" ToRole="Shoes" />
+          <NavigationProperty Name="ShoeSize1" Relationship="FootprintBaseModel.FK_ReceivedGoods_ShoeSize" FromRole="ReceivedGoods" ToRole="ShoeSize" />
+        </EntityType>
+        <Association Name="FK_BoxOfShoes_Container">
+          <End Type="FootprintBaseModel.Container" Role="Container" Multiplicity="1" />
+          <End Type="FootprintBaseModel.BoxOfShoes" Role="BoxOfShoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Container">
+              <PropertyRef Name="ContainerId" />
+            </Principal>
+            <Dependent Role="BoxOfShoes">
+              <PropertyRef Name="ContainerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceivedGoods_Invoice">
+          <End Type="FootprintBaseModel.Invoice" Role="Invoice" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FootprintBaseModel.ReceivedGoods" Role="ReceivedGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="InvoiceId" />
+            </Principal>
+            <Dependent Role="ReceivedGoods">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceivedGoods_Shoes">
+          <End Type="FootprintBaseModel.Shoes" Role="Shoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FootprintBaseModel.ReceivedGoods" Role="ReceivedGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoes">
+              <PropertyRef Name="ShoesId" />
+            </Principal>
+            <Dependent Role="ReceivedGoods">
+              <PropertyRef Name="ShoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceivedGoods_ShoeSize">
+          <End Type="FootprintBaseModel.ShoeSize" Role="ShoeSize" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FootprintBaseModel.ReceivedGoods" Role="ReceivedGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoeSize">
+              <PropertyRef Name="ShoeSize1" />
+            </Principal>
+            <Dependent Role="ReceivedGoods">
+              <PropertyRef Name="ShoeSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="StockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShoesId" Type="Int32" Nullable="false" />
+          <Property Name="ShoesSize" Type="Int32" Nullable="false" />
+          <Property Name="QuantityProduct" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BoxOfShoes" Relationship="FootprintBaseModel.FK_BoxOfShoes_Stock" FromRole="Stock" ToRole="BoxOfShoes" />
+          <NavigationProperty Name="Shoes" Relationship="FootprintBaseModel.FK_Stock_Shoes" FromRole="Stock" ToRole="Shoes" />
+          <NavigationProperty Name="ShoeSize" Relationship="FootprintBaseModel.FK_Stock_ShoeSize" FromRole="Stock" ToRole="ShoeSize" />
+        </EntityType>
+        <Association Name="FK_BoxOfShoes_Stock">
+          <End Type="FootprintBaseModel.Stock" Role="Stock" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FootprintBaseModel.BoxOfShoes" Role="BoxOfShoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="StockId" />
+            </Principal>
+            <Dependent Role="BoxOfShoes">
+              <PropertyRef Name="StockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Shoes">
+          <End Type="FootprintBaseModel.Shoes" Role="Shoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FootprintBaseModel.Stock" Role="Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoes">
+              <PropertyRef Name="ShoesId" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ShoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_ShoeSize">
+          <End Type="FootprintBaseModel.ShoeSize" Role="ShoeSize" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FootprintBaseModel.Stock" Role="Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoeSize">
+              <PropertyRef Name="ShoeSize1" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ShoesSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище FootprintBaseModelContainer" CdmEntityContainer="FootprintBaseEntities">
+          <EntitySetMapping Name="AccessLevels">
+            <EntityTypeMapping TypeName="FootprintBaseModel.AccessLevels">
+              <MappingFragment StoreEntitySet="AccessLevels">
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brand">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buyer">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Buyer">
+              <MappingFragment StoreEntitySet="Buyer">
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cheque">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Cheque">
+              <MappingFragment StoreEntitySet="Cheque">
+                <ScalarProperty Name="ChequeId" ColumnName="ChequeId" />
+                <ScalarProperty Name="DateOfSale" ColumnName="DateOfSale" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Color">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Color">
+              <MappingFragment StoreEntitySet="Color">
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoice">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="SuppliersId" ColumnName="SuppliersId" />
+                <ScalarProperty Name="DateOfReceipt" ColumnName="DateOfReceipt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsInTheReceipt">
+            <EntityTypeMapping TypeName="FootprintBaseModel.ItemsInTheReceipt">
+              <MappingFragment StoreEntitySet="ItemsInTheReceipt">
+                <ScalarProperty Name="ItemsInTheReceiptId" ColumnName="ItemsInTheReceiptId" />
+                <ScalarProperty Name="ChequeId" ColumnName="ChequeId" />
+                <ScalarProperty Name="ShoesId" ColumnName="ShoesId" />
+                <ScalarProperty Name="ShoeSize" ColumnName="ShoeSize" />
+                <ScalarProperty Name="QuantityProduct" ColumnName="QuantityProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Season">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Season">
+              <MappingFragment StoreEntitySet="Season">
+                <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shoes">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Shoes">
+              <MappingFragment StoreEntitySet="Shoes">
+                <ScalarProperty Name="ShoesId" ColumnName="ShoesId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+                <ScalarProperty Name="ShoesTypeId" ColumnName="ShoesTypeId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoeSize">
+            <EntityTypeMapping TypeName="FootprintBaseModel.ShoeSize">
+              <MappingFragment StoreEntitySet="ShoeSize">
+                <ScalarProperty Name="ShoeSize1" ColumnName="ShoeSize" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoesType">
+            <EntityTypeMapping TypeName="FootprintBaseModel.ShoesType">
+              <MappingFragment StoreEntitySet="ShoesType">
+                <ScalarProperty Name="ShoesTypeId" ColumnName="ShoesTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Suppliers">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="SuppliersId" ColumnName="SuppliersId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FootprintBaseModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Container">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Container">
+              <MappingFragment StoreEntitySet="Container">
+                <ScalarProperty Name="ShoesId" ColumnName="ShoesId" />
+                <ScalarProperty Name="ContainerId" ColumnName="ContainerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="History">
+            <EntityTypeMapping TypeName="FootprintBaseModel.History">
+              <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="ExitDate" ColumnName="ExitDate" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoxOfShoes">
+            <EntityTypeMapping TypeName="FootprintBaseModel.BoxOfShoes">
+              <MappingFragment StoreEntitySet="BoxOfShoes">
+                <ScalarProperty Name="StockId" ColumnName="StockId" />
+                <ScalarProperty Name="ContainerId" ColumnName="ContainerId" />
+                <ScalarProperty Name="BoxId" ColumnName="BoxId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceivedGoods">
+            <EntityTypeMapping TypeName="FootprintBaseModel.ReceivedGoods">
+              <MappingFragment StoreEntitySet="ReceivedGoods">
+                <ScalarProperty Name="QuantityProduct" ColumnName="QuantityProduct" />
+                <ScalarProperty Name="ShoeSize" ColumnName="ShoeSize" />
+                <ScalarProperty Name="ShoesId" ColumnName="ShoesId" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="ReceivedGoodsId" ColumnName="ReceivedGoodsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock">
+            <EntityTypeMapping TypeName="FootprintBaseModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="QuantityProduct" ColumnName="QuantityProduct" />
+                <ScalarProperty Name="ShoesSize" ColumnName="ShoesSize" />
+                <ScalarProperty Name="ShoesId" ColumnName="ShoesId" />
+                <ScalarProperty Name="StockId" ColumnName="StockId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

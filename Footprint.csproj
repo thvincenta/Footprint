@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0E72A32-A4CF-453D-9479-2016763ECC8D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Footprint</RootNamespace>
+    <AssemblyName>Footprint</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>иконка1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AccessLevels.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BoxOfShoes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Brand.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Buyer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Color.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Container.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseFootprint.cs" />
+    <Compile Include="History.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsInTheReceipt.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Material.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BrandPage.xaml.cs">
+      <DependentUpon>BrandPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BuyersPage.xaml.cs">
+      <DependentUpon>BuyersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChequePage.xaml.cs">
+      <DependentUpon>ChequePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ColorsPage.xaml.cs">
+      <DependentUpon>ColorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvoicePage.xaml.cs">
+      <DependentUpon>InvoicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPage.xaml.cs">
+      <DependentUpon>MaterialsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShoeCatalog.xaml.cs">
+      <DependentUpon>ShoeCatalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShoeCatalogForSeller.xaml.cs">
+      <DependentUpon>ShoeCatalogForSeller.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShoeSizePage.xaml.cs">
+      <DependentUpon>ShoeSizePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShoesTypePage.xaml.cs">
+      <DependentUpon>ShoesTypePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StaffPage.xaml.cs">
+      <DependentUpon>StaffPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StatisticPage.xaml.cs">
+      <DependentUpon>StatisticPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StockPage.xaml.cs">
+      <DependentUpon>StockPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SuppliersPage.xaml.cs">
+      <DependentUpon>SuppliersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Post.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivedGoods.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Season.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SetColor.cs" />
+    <Compile Include="Shoes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoeSize.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoesType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditBrand.xaml.cs">
+      <DependentUpon>WindowEditBrand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditBuyers.xaml.cs">
+      <DependentUpon>WindowEditBuyers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditCheque.xaml.cs">
+      <DependentUpon>WindowEditCheque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditColor.xaml.cs">
+      <DependentUpon>WindowEditColor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditGoods.xaml.cs">
+      <DependentUpon>WindowEditGoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditInvoice.xaml.cs">
+      <DependentUpon>WindowEditInvoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditItemsInCheque.xaml.cs">
+      <DependentUpon>WindowEditItemsInCheque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditMaterial.xaml.cs">
+      <DependentUpon>WindowEditMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditShoeCatalog.xaml.cs">
+      <DependentUpon>WindowEditShoeCatalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditShoesSize.xaml.cs">
+      <DependentUpon>WindowEditShoesSize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditShoesType.xaml.cs">
+      <DependentUpon>WindowEditShoesType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditStaff.xaml.cs">
+      <DependentUpon>WindowEditStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowEditSuppliers.xaml.cs">
+      <DependentUpon>WindowEditSuppliers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Окно администратора.xaml.cs">
+      <DependentUpon>Окно администратора.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Окно кладовщика.xaml.cs">
+      <DependentUpon>Окно кладовщика.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Окно продавца.xaml.cs">
+      <DependentUpon>Окно продавца.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\BrandPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\BuyersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ChequePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ColorsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\HistoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\InvoicePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MaterialsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ShoeCatalog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ShoeCatalogForSeller.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ShoeSizePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ShoesTypePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StaffPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StatisticPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StockPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SuppliersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditBrand.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditBuyers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditCheque.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditGoods.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditInvoice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditItemsInCheque.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditMaterial.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditShoeCatalog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditShoesSize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditShoesType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowEditSuppliers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Окно администратора.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Окно кладовщика.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Окно продавца.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="фото\Диаграмма3.jpg" />
+    <Resource Include="фото\Диаграмма1.jpg" />
+    <Resource Include="фото\Диаграмма2.jpg" />
+    <Resource Include="Иконки меню\стрелка1.png" />
+    <Resource Include="Иконки меню\стрелка2.png" />
+    <Resource Include="иконка1.ico" />
+    <Resource Include="Иконки меню\бренд.png" />
+    <Resource Include="Иконки меню\выход1.png" />
+    <Resource Include="Иконки меню\добавление фото.png" />
+    <Resource Include="Иконки меню\документы.png" />
+    <Resource Include="Иконки меню\история входа.png" />
+    <Resource Include="Иконки меню\каталог.png" />
+    <Resource Include="Иконки меню\контрагенты.png" />
+    <Resource Include="Иконки меню\материал.png" />
+    <Resource Include="Иконки меню\назад.png" />
+    <Resource Include="Иконки меню\накладная.png" />
+    <Resource Include="Иконки меню\покупатель.png" />
+    <Resource Include="Иконки меню\поставщик.png" />
+    <Resource Include="Иконки меню\размер.png" />
+    <Resource Include="Иконки меню\склад.png" />
+    <Resource Include="Иконки меню\сотрудники.png" />
+    <Resource Include="Иконки меню\статистика.png" />
+    <Resource Include="Иконки меню\тип обуви.png" />
+    <Resource Include="Иконки меню\характеристика обуви.png" />
+    <Resource Include="Иконки меню\цвет.png" />
+    <Resource Include="Иконки меню\чек.png" />
+    <Resource Include="Фото обуви\Балетки с декором.jpg" />
+    <Resource Include="Фото обуви\Босоножки из кожи на каблуке.jpg" />
+    <Resource Include="Фото обуви\Босоножки с эластичными ремешками.jpg" />
+    <Resource Include="Фото обуви\Босоножки.jpg" />
+    <Resource Include="Фото обуви\Ботильоны на устойчивом каблуке %282%29.jpg" />
+    <Resource Include="Фото обуви\Ботильоны на устойчивом каблуке %283%29.jpg" />
+    <Resource Include="Фото обуви\Ботильоны на устойчивом каблуке.jpg" />
+    <Resource Include="Фото обуви\Ботильоны с мини-сумкой на щиколотке Renegade-P.jpg" />
+    <Resource Include="Фото обуви\Ботинки дутики на кулисках.jpg" />
+    <Resource Include="Фото обуви\Ботинки кожаные с контрастными деталями.jpg" />
+    <Resource Include="Фото обуви\Ботинки с меховой отделкой.jpg" />
+    <Resource Include="Фото обуви\Ботфорты на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Высокие ботинки на шнуровке.jpg" />
+    <Resource Include="Фото обуви\Высокие ботинки.jpg" />
+    <Resource Include="Фото обуви\Высокие кеды Ivy Park x Wmns Super Sleek Boot %27Halls Of Ivy%27.jpg" />
+    <Resource Include="Фото обуви\Высокие кроссовки PulseBOOST HD S by Stella McCartney.jpg" />
+    <Resource Include="Фото обуви\Домашние тапочки с сердцем.jpg" />
+    <Resource Include="Фото обуви\Дутики из кожи.jpg" />
+    <Resource Include="Фото обуви\Замшевые балетки с пряжкой.jpg" />
+    <Resource Include="Фото обуви\Замшевые босоножки.jpg" />
+    <Resource Include="Фото обуви\Замшевые ботильоны.jpg" />
+    <Resource Include="Фото обуви\Зимние ботинки на массивной подошве %282%29.jpg" />
+    <Resource Include="Фото обуви\Зимние ботинки на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Кеды Club C Geo Mid.jpg" />
+    <Resource Include="Фото обуви\Кеды на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Кеды.jpg" />
+    <Resource Include="Фото обуви\Кожаные босоножки %282%29.jpg" />
+    <Resource Include="Фото обуви\Кожаные босоножки Dames.jpg" />
+    <Resource Include="Фото обуви\Кожаные босоножки на устойчивом каблуке.jpg" />
+    <Resource Include="Фото обуви\Кожаные босоножки.jpg" />
+    <Resource Include="Фото обуви\Кожаные ботильоны %282%29.jpg" />
+    <Resource Include="Фото обуви\Кожаные ботильоны на устойчивом каблуке.jpg" />
+    <Resource Include="Фото обуви\Кожаные ботильоны.jpg" />
+    <Resource Include="Фото обуви\Кожаные ботинки на платформе Devon Flower.jpg" />
+    <Resource Include="Фото обуви\Кожаные ботинки с мини-сумкой на щиколотке Jaxstar.jpg" />
+    <Resource Include="Фото обуви\Кожаные ботинки со шнуровкой.jpg" />
+    <Resource Include="Фото обуви\Кожаные кеды.jpg" />
+    <Resource Include="Фото обуви\Кожаные лоферы Gory.jpg" />
+    <Resource Include="Фото обуви\Кожаные лоферы Legacy.jpg" />
+    <Resource Include="Фото обуви\Кожаные лоферы Shatha %282%29.jpg" />
+    <Resource Include="Фото обуви\Кожаные лоферы Shatha.jpg" />
+    <Resource Include="Фото обуви\Кожаные лоферы.jpg" />
+    <Resource Include="Фото обуви\Кожаные мюли Diamante.jpg" />
+    <Resource Include="Фото обуви\Кожаные мюли на устойчивом каблуке.jpg" />
+    <Resource Include="Фото обуви\Кожаные мюли.jpg" />
+    <Resource Include="Фото обуви\Кожаные полусапоги на кулиске.jpg" />
+    <Resource Include="Фото обуви\Кожаные полусапоги на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Кожаные полусапоги челси.jpg" />
+    <Resource Include="Фото обуви\Кожаные сабо на каблуке.jpg" />
+    <Resource Include="Фото обуви\Кожаные сабо.jpg" />
+    <Resource Include="Фото обуви\Кожаные сандалии плетенные %282%29.jpg" />
+    <Resource Include="Фото обуви\Кожаные сандалии плетенные.jpg" />
+    <Resource Include="Фото обуви\Кожаные сандалии.jpg" />
+    <Resource Include="Фото обуви\Кожаные сапоги.jpg" />
+    <Resource Include="Фото обуви\Кожаные туфли Core.jpg" />
+    <Resource Include="Фото обуви\Кожаные туфли балетки.jpg" />
+    <Resource Include="Фото обуви\Кожаные туфли мюли.jpg" />
+    <Resource Include="Фото обуви\Кожаные туфли с узким мысом.jpg" />
+    <Resource Include="Фото обуви\Кожаные угги.jpg" />
+    <Resource Include="Фото обуви\Кожаные челси %282%29.jpg" />
+    <Resource Include="Фото обуви\Кожаные челси на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Кожаные челси.jpg" />
+    <Resource Include="Фото обуви\Комбинированные ботинки из кожи Combs Tech.jpg" />
+    <Resource Include="Фото обуви\Комбинированные кроссовки 740.jpg" />
+    <Resource Include="Фото обуви\Комбинированные кроссовки из замши и текстиля 327.jpg" />
+    <Resource Include="Фото обуви\Комбинированные кроссовки на платформе 574.jpg" />
+    <Resource Include="Фото обуви\Комбинированные кроссовки.jpg" />
+    <Resource Include="Фото обуви\Комбинированные челси.jpg" />
+    <Resource Include="Фото обуви\Кроссовки 574.jpg" />
+    <Resource Include="Фото обуви\Кроссовки Air Max Excee %282%29.jpg" />
+    <Resource Include="Фото обуви\Кроссовки Air Max Excee.jpg" />
+    <Resource Include="Фото обуви\Кроссовки Energen Run 3.jpg" />
+    <Resource Include="Фото обуви\Кроссовки Energen Tech Plus.jpg" />
+    <Resource Include="Фото обуви\Кроссовки из замши 574.jpg" />
+    <Resource Include="Фото обуви\Кроссовки на высокой подошве Brecky.jpg" />
+    <Resource Include="Фото обуви\Кроссовки на высокой подошве Calebb.jpg" />
+    <Resource Include="Фото обуви\Лакированные кроссовки на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Лодочки из натуральной кожи.jpg" />
+    <Resource Include="Фото обуви\Лоферы из замши.jpg" />
+    <Resource Include="Фото обуви\Меховые шлепанцы.jpg" />
+    <Resource Include="Фото обуви\Пантолеты Baya.jpg" />
+    <Resource Include="Фото обуви\Пантолеты Bayaband.jpg" />
+    <Resource Include="Фото обуви\Пантолеты Classic.jpg" />
+    <Resource Include="Фото обуви\Пантолеты из велюра с застежками.jpg" />
+    <Resource Include="Фото обуви\Плюшевые сандалии из натурального меха.jpg" />
+    <Resource Include="Фото обуви\Плюшевые сандалии.jpg" />
+    <Resource Include="Фото обуви\Полуботинки из текстиля.jpg" />
+    <Resource Include="Фото обуви\Полуботинки на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Полуботинки на шнуровке.jpg" />
+    <Resource Include="Фото обуви\Полусапоги на каблуке.jpg" />
+    <Resource Include="Фото обуви\Полусапоги с меховой отделкой.jpg" />
+    <Resource Include="Фото обуви\Полусапоги челси на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Полусапоги челси.jpg" />
+    <Resource Include="Фото обуви\Сабо %282%29.jpg" />
+    <Resource Include="Фото обуви\Сабо Hammi с принтом с логотипами 4G.jpg" />
+    <Resource Include="Фото обуви\Сабо на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Сабо на платформе.jpg" />
+    <Resource Include="Фото обуви\Сабо с логотипом бренда %282%29.jpg" />
+    <Resource Include="Фото обуви\Сабо с логотипом бренда %283%29.jpg" />
+    <Resource Include="Фото обуви\Сабо с логотипом бренда.jpg" />
+    <Resource Include="Фото обуви\Сабо.jpg" />
+    <Resource Include="Фото обуви\Сандалии %282%29.jpg" />
+    <Resource Include="Фото обуви\Сандалии %283%29.jpg" />
+    <Resource Include="Фото обуви\Сандалии на массивной подошве %282%29.jpg" />
+    <Resource Include="Фото обуви\Сандалии на массивной подошве.jpg" />
+    <Resource Include="Фото обуви\Сандалии на платформе.jpg" />
+    <Resource Include="Фото обуви\Сандалии.jpg" />
+    <Resource Include="Фото обуви\Сапоги.jpg" />
+    <Resource Include="Фото обуви\Сланцы с логотипом.jpg" />
+    <Resource Include="Фото обуви\Спортивные кроссовки Air Max Excee.jpg" />
+    <Resource Include="Фото обуви\Спортивные кроссовки Renew In-Season TR 12.jpg" />
+    <Resource Include="Фото обуви\Стеганые угги.jpg" />
+    <Resource Include="Фото обуви\Тапочки меховые.jpg" />
+    <Resource Include="Фото обуви\Туфли Flow.jpg" />
+    <Resource Include="Фото обуви\Туфли из кожи на устойчивом каблуке.jpg" />
+    <Resource Include="Фото обуви\Туфли на каблуке.jpg" />
+    <Resource Include="Фото обуви\Туфли на устойчивом каблуке.jpg" />
+    <Resource Include="Фото обуви\Туфли-лодочки с узором из логотипов 4G %282%29.jpg" />
+    <Resource Include="Фото обуви\Туфли-лодочки с узором из логотипов 4G.jpg" />
+    <Resource Include="Фото обуви\Угги замшевые.jpg" />
+    <Resource Include="Фото обуви\Угги из замши.jpg" />
+    <Resource Include="Фото обуви\Утепленные сабо.jpg" />
+    <Resource Include="фото\qr-code.png" />
+    <Resource Include="фото\авторизация.png" />
+    <Resource Include="фото\иконка.ico" />
+    <Resource Include="фото\иконка1.ico" />
+    <Resource Include="фото\лого.png" />
+    <Resource Include="фото\логотип.png" />
+    <Resource Include="фото\пользователь.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

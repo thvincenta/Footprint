@@ -1,0 +1,64 @@
+﻿<Window x:Class="Footprint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Footprint"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="700" Width="700"
+        MaxHeight="700" MaxWidth="700"
+        WindowStartupLocation="CenterScreen"
+        Icon="/фото/иконка1.ico">
+    <Window.Resources>
+        <ResourceDictionary>
+            <RoutedUICommand x:Key="f1" Text="Anouther Text"/>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="F1" Command="{StaticResource f1}"/>
+    </Window.InputBindings>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource f1}" Executed="F1Shortcut1"/>
+    </Window.CommandBindings>
+    
+    <Grid Background="#f2f2ef">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image  Source="/фото/авторизация.png" Grid.Column="1" Grid.RowSpan="2"/>
+        <Label Content="Footprint" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0" Foreground="#a27861" FontSize="80" FontFamily="Times New Roman"/>
+
+        <Border Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Width="500" CornerRadius="50" Background="White" BorderBrush="#d0a88d" BorderThickness="0.5">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 50 10 0">
+                    <Label Content="Пользователь:" Height="50"  FontSize="20" FontFamily="Comic Sans MS"/>
+                    <ComboBox FontSize="18" Name="cbAccessLevel" SelectedValuePath="AccessLevel" SelectedValue="{Binding AccessLevel}" DisplayMemberPath="AccessLevel" Height="30" Width="250" Margin="30 0 0 10" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 50 10 0">
+                    <Label Content="Пароль:" Height="50" FontSize="20" FontFamily="Comic Sans MS" />
+                    <PasswordBox x:Name="passwordBox" Height="35" Width="250" Margin="90 0 0 20" FontSize="20" FontFamily="Comic Sans MS" BorderThickness="0, 0, 0, 2" Background="{x:Null}"/>
+                    <CheckBox x:Name="checkBoxPwd" Content="👁️" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0 0 0" Click="checkBoxPwd_Click" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <TextBox x:Name="textBoxForVisible" Height="35" Width="250" Margin="130 0 0 50" Grid.Row="4" Grid.Column="1"  FontSize="20" FontFamily="Comic Sans MS" BorderThickness="0, 0, 0, 2" Background="{x:Null}" Visibility="Hidden"/>
+
+        <Button Style="{StaticResource ButtonAutorization}" Content="ОК" Grid.Row="5" Grid.Column="1" Width="200" Height="40" FontSize="20" Background="#a27861 " Click="SignInToTheProgram_Click"  >
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Gray" Direction="320"  ShadowDepth="5" Opacity="0.8" />
+            </Button.BitmapEffect>
+        </Button>
+    </Grid>
+</Window>

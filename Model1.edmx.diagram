@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e53cdc310d8e486db836fa59b4ea45d3" Name="Diagram1" ZoomLevel="99">
+        <EntityTypeShape EntityType="FootprintBaseModel.AccessLevels" Width="1.5" PointX="1.5" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Brand" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Buyer" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Cheque" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Color" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Invoice" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.ItemsInTheReceipt" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Material" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Post" Width="1.5" PointX="1.5" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Season" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Shoes" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.ShoeSize" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.ShoesType" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Staff" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Suppliers" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="FootprintBaseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Staff_AccessLevels" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Shoes_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Cheque_Buyer" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Cheque_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_ItemsInTheReceipt_Cheque" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Shoes_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Invoice_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_ItemsInTheReceipt_Shoes" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_ItemsInTheReceipt_ShoeSize" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Shoes_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Staff_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Shoes_Season" ManuallyRouted="false" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Shoes_ShoesType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Container" Width="1.5" PointX="5.25" PointY="4.125" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Container_Shoes" />
+        <EntityTypeShape EntityType="FootprintBaseModel.History" Width="1.5" PointX="3" PointY="15.875" />
+        <AssociationConnector Association="FootprintBaseModel.FK_History_Staff" />
+        <EntityTypeShape EntityType="FootprintBaseModel.BoxOfShoes" Width="1.5" PointX="10.5" PointY="4.375" />
+        <EntityTypeShape EntityType="FootprintBaseModel.ReceivedGoods" Width="1.5" PointX="10.5" PointY="7.125" />
+        <AssociationConnector Association="FootprintBaseModel.FK_BoxOfShoes_Container" />
+        <AssociationConnector Association="FootprintBaseModel.FK_ReceivedGoods_Invoice" />
+        <AssociationConnector Association="FootprintBaseModel.FK_ReceivedGoods_Shoes" />
+        <AssociationConnector Association="FootprintBaseModel.FK_ReceivedGoods_ShoeSize" />
+        <EntityTypeShape EntityType="FootprintBaseModel.Stock" Width="1.5" PointX="8.25" PointY="4.25" />
+        <AssociationConnector Association="FootprintBaseModel.FK_BoxOfShoes_Stock" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Stock_Shoes" />
+        <AssociationConnector Association="FootprintBaseModel.FK_Stock_ShoeSize" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
